@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Wheel from './components/Wheel';
 import MenuInput from './components/MenuInput';
-import "./style.css";
+import './index.css';
 const SPINNER_COLORS = [
   '#fde047', '#f97316', '#ef4444', '#ec4899',
   '#d946ef', '#a855f7', '#8b5cf6', '#6366f1',
