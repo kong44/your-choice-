@@ -54,7 +54,7 @@ const Wheel: React.FC<WheelProps> = ({ items, rotation, colors }) => {
               style={{ transform: `rotate(${textAngle}deg)` }}
             >
               <span
-                className="absolute left-[55%] top-1/2 -translate-y-1/2 text-black font-bold text-sm md:text-base"
+                className="absolute left-[75%] top-1/2 -translate-y-1/2 text-black font-bold text-sm md:text-base"
                 style={{
                   transform: 'rotate(-90deg)', // Keep text horizontal relative to user
                   whiteSpace: 'nowrap',

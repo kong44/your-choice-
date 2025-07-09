@@ -26,7 +26,7 @@ const MenuInput: React.FC<MenuInputProps> = ({ items, onAddItem, onRemoveItem, d
 
   return (
     <div className="w-full p-6 bg-slate-800 rounded-lg shadow-xl">
-      <h2 className="text-2xl font-bold mb-4 text-yellow-300">Menu Options</h2>
+      <h2 className="text-2xl font-bold mb-4 text-yellow-300">Choice Options</h2>
       <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
         <input
           type="text"
