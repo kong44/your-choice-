@@ -3,6 +3,9 @@ import React, { useState, useCallback, useEffect } from 'react';
 import Wheel from './components/Wheel';
 import MenuInput from './components/MenuInput';
 import bubu from './bubu.png';
+import start from './start_btn.mp3';
+import wheel from './spinning-wheel.mp3';
+import win from './win.mp3'
 const SPINNER_COLORS = [
   '#fde047', '#f97316', '#ef4444', '#ec4899',
   '#d946ef', '#a855f7', '#8b5cf6', '#6366f1',
@@ -46,38 +49,57 @@ const App: React.FC = () => {
   }, []);
   
   const handleSpin = () => {
-    if (isSpinning || menuItems.length < 2) return;
+  if (isSpinning || menuItems.length < 2) return;
 
-    // Reset rotation visually to 0 before starting a new spin
-    setIsSpinning(true);
-    setWinner(null);
+  const startAudio = new Audio(start);
+  const wheelAudio = new Audio(wheel);
+  const winAudio = new Audio(win);
 
-    // Step 1: Reset rotation to 0 with no transition
-    if(rotation != 0){
-      setRotation(0);
-    }
+  // Allow overlapping playback
+  wheelAudio.loop = true;
 
-    // Step 2: Wait for the reset to apply (next tick), then do the spin
+  startAudio.play();
+
+  setIsSpinning(true);
+  setWinner(null);
+
+  if (rotation !== 0) {
+    setRotation(0);
+  }
+
+  // Step 1: Delay for reset, then spin
+  setTimeout(() => {
+    const totalItems = menuItems.length;
+    const degreesPerItem = 360 / totalItems;
+    const winnerIndex = Math.floor(Math.random() * totalItems);
+    const randomOffset = Math.random() * degreesPerItem * 0.8 - (degreesPerItem * 0.4);
+    const targetAngle = 270 - (winnerIndex * degreesPerItem + degreesPerItem / 2) + randomOffset;
+    const randomSpins = 8 + Math.floor(Math.random() * 5);
+    const newRotation = (randomSpins * 360) + targetAngle;
+
+    
+
+    wheelAudio.play();
     setTimeout(() => {
-      const totalItems = menuItems.length;
-      const degreesPerItem = 360 / totalItems;
+      wheelAudio.pause();
+      wheelAudio.currentTime = 0;
+    }, 6000); // stop at 6.04s
 
-      const winnerIndex = Math.floor(Math.random() * totalItems);
-      const randomOffset = Math.random() * degreesPerItem * 0.8 - (degreesPerItem * 0.4); // +/- 40% of slice
-      const targetAngle = 270 - (winnerIndex * degreesPerItem + degreesPerItem / 2) + randomOffset;
-      const randomSpins = 8 + Math.floor(Math.random() * 5); // 8 to 12 spins
-      const newRotation = (randomSpins * 360) + targetAngle; 
+    setRotation(newRotation);
 
-      // Now apply rotation with spin transition
-      setRotation(newRotation);
+    // ⏱️ Stop spin after 6s
+    const spinDuration = 6000;
+    setTimeout(() => {
+      setIsSpinning(false);
+      setWinner(menuItems[winnerIndex]);
 
-      const spinDuration = 6000;
-      setTimeout(() => {
-        setIsSpinning(false);
-        setWinner(menuItems[winnerIndex]);
-      }, spinDuration);
-    }, 1000); // Small delay to allow reset to render
-  };
+      // ⏱️ Sound: win at ~6.03s
+      setTimeout(() => winAudio.play(), 30);
+   
+    }, spinDuration);
+  }, 500); // Delay to allow rotation reset
+};
+
 
 
   return (
