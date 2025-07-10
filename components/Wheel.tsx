@@ -33,7 +33,7 @@ const Wheel: React.FC<WheelProps> = ({ items, rotation, colors }) => {
     <div
       className="relative w-full h-full rounded-full border-8 border-slate-700 shadow-2xl"
       style={{
-        transition: 'transform 6s cubic-bezier(0.25, 0.1, 0.25, 1)',
+        transition: `transform ${rotation == 0 ? '0s' : '6s'} cubic-bezier(0.25, 0.1, 0.25, 1)`,
         transform: `rotate(${rotation}deg)`,
         background: `conic-gradient(${items
           .map((_, i) => `${colors[i % colors.length]} ${i * degreesPerItem}deg ${(i + 1) * degreesPerItem}deg`)

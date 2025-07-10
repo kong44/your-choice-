@@ -1,26 +1,40 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-ag" />
+    <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spin the Wheel: Food Edition</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Kantumruy Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@100..700&display=swap" rel="stylesheet" />
+
+    <!-- Custom Styles -->
     <style>
-      /* For custom spinner animation if needed, but we will use transitions */
+      body {
+        font-family: 'Kantumruy Pro', sans-serif;
+      }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "react": "https://esm.sh/react@^19.1.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+
+    <!-- Import Maps for React -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react/": "https://esm.sh/react@^19.1.0/",
+          "react": "https://esm.sh/react@^19.1.0",
+          "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+        }
+      }
+    </script>
+
+    <!-- Local Styles -->
+    <link rel="stylesheet" href="/index.css" />
+  </head>
   <body class="bg-slate-900 text-white">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>

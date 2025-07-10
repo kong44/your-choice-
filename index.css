@@ -1,9 +1,0 @@
-@font-face {
-  font-family: 'Krasar';
-  src: url('./KRASAR-REGULAR.TTF') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-body {
-  font-family: 'Krasar', sans-serif;
-}

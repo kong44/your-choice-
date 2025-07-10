@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Wheel from './components/Wheel';
 import MenuInput from './components/MenuInput';
-import './index.css';
+
 const SPINNER_COLORS = [
   '#fde047', '#f97316', '#ef4444', '#ec4899',
   '#d946ef', '#a855f7', '#8b5cf6', '#6366f1',
@@ -48,31 +48,37 @@ const App: React.FC = () => {
   const handleSpin = () => {
     if (isSpinning || menuItems.length < 2) return;
 
+    // Reset rotation visually to 0 before starting a new spin
     setIsSpinning(true);
     setWinner(null);
-    const totalItems = menuItems.length;
-    const degreesPerItem = 360 / totalItems;
-    
-    // Choose a random winner
-    const winnerIndex = Math.floor(Math.random() * totalItems);
-    
-    // Calculate the rotation to land on the winner
-    // The pointer is at the top (270 degrees), so we calculate the offset.
-    // We add some random spins for visual effect.
-    const randomOffset = Math.random() * degreesPerItem * 0.8 - (degreesPerItem * 0.4); // +/- 40% of slice width
-    const targetAngle = 270 - (winnerIndex * degreesPerItem + degreesPerItem / 2) + randomOffset;
-    
-    const randomSpins = 8 + Math.floor(Math.random() * 5); // 8 to 12 full spins
-    const newRotation = rotation + (randomSpins * 360) + targetAngle;
-    
-    setRotation(newRotation);
 
-    const spinDuration = 6000; // Corresponds to transition duration in Wheel.tsx
+    // Step 1: Reset rotation to 0 with no transition
+    if(rotation != 0){
+      setRotation(0);
+    }
+
+    // Step 2: Wait for the reset to apply (next tick), then do the spin
     setTimeout(() => {
-      setIsSpinning(false);
-      setWinner(menuItems[winnerIndex]);
-    }, spinDuration);
+      const totalItems = menuItems.length;
+      const degreesPerItem = 360 / totalItems;
+
+      const winnerIndex = Math.floor(Math.random() * totalItems);
+      const randomOffset = Math.random() * degreesPerItem * 0.8 - (degreesPerItem * 0.4); // +/- 40% of slice
+      const targetAngle = 270 - (winnerIndex * degreesPerItem + degreesPerItem / 2) + randomOffset;
+      const randomSpins = 8 + Math.floor(Math.random() * 5); // 8 to 12 spins
+      const newRotation = (randomSpins * 360) + targetAngle; // old rotation
+
+      // Now apply rotation with spin transition
+      setRotation(newRotation);
+
+      const spinDuration = 6000;
+      setTimeout(() => {
+        setIsSpinning(false);
+        setWinner(menuItems[winnerIndex]);
+      }, spinDuration);
+    }, 1000); // Small delay to allow reset to render
   };
+
 
   return (
     <div className="min-h-screen bg-slate-900 text-white flex flex-col items-center justify-center p-4 font-sans">
