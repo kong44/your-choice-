@@ -1,6 +1,6 @@
 
 import React from 'react';
-import vite_png from '../vite.png'
+import vite_png from '../vite.png';
 interface WheelProps {
   items: string[];
   rotation: number;

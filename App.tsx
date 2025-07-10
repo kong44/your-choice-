@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Wheel from './components/Wheel';
 import MenuInput from './components/MenuInput';
-
+import bubu from './bubu.png';
 const SPINNER_COLORS = [
   '#fde047', '#f97316', '#ef4444', '#ec4899',
   '#d946ef', '#a855f7', '#8b5cf6', '#6366f1',
@@ -82,7 +82,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white flex flex-col items-center justify-center p-4 font-sans">
-      <header className="text-center mb-6">
+      <header className="text-center mb-[100px]">
         <h1 className="text-5xl font-bold text-yellow-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">Dudu's Decision Wheel</h1>
         <p className="text-slate-400 mt-2">Add your choices and spin the wheel!</p>
       </header>
@@ -90,11 +90,12 @@ const App: React.FC = () => {
       <main className="w-full max-w-6xl flex flex-col lg:flex-row items-center lg:items-start justify-center gap-8">
         <div className="w-full lg:w-1/2 flex flex-col items-center">
             <div className="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px] mb-6">
-              <div className="absolute top-[-15px] left-1/2 -translate-x-1/2 z-10" style={{ filter: 'drop-shadow(0 4px 3px rgba(0,0,0,0.5))' }}>
+              <img src={bubu} className="w-[77px] h-[77px] absolute top-[-45px] left-1/2 -translate-x-1/2 z-20" alt="bubu"/>
+              {/* <div className="absolute top-[-15px] left-1/2 -translate-x-1/2 z-10" style={{ filter: 'drop-shadow(0 4px 3px rgba(0,0,0,0.5))' }}>
                  <svg width="50" height="60" viewBox="0 0 50 60">
                     <polygon points="25,60 0,0 50,0" className="fill-red-500" />
                  </svg>
-              </div>
+              </div> */}
               <Wheel items={menuItems} rotation={rotation} colors={SPINNER_COLORS} />
             </div>
 
