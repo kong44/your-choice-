@@ -56,7 +56,7 @@ const Wheel: React.FC<WheelProps> = ({ items, rotation, colors }) => {
               <span
                 className="absolute left-[75%] top-1/2 -translate-y-1/2 text-black font-bold text-sm md:text-base"
                 style={{
-                  transform: 'rotate(-90deg)', // Keep text horizontal relative to user
+                  transform: 'rotate(-180deg)', // Keep text horizontal relative to user
                   whiteSpace: 'nowrap',
                   textShadow: '0 0 2px white, 0 0 2px white', // Make text more readable
                   maxWidth: '40%'

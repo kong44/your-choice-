@@ -66,7 +66,7 @@ const App: React.FC = () => {
       const randomOffset = Math.random() * degreesPerItem * 0.8 - (degreesPerItem * 0.4); // +/- 40% of slice
       const targetAngle = 270 - (winnerIndex * degreesPerItem + degreesPerItem / 2) + randomOffset;
       const randomSpins = 8 + Math.floor(Math.random() * 5); // 8 to 12 spins
-      const newRotation = (randomSpins * 360) + targetAngle; // old rotation
+      const newRotation = (randomSpins * 360) + targetAngle; 
 
       // Now apply rotation with spin transition
       setRotation(newRotation);
