@@ -83,7 +83,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-900 text-white flex flex-col items-center justify-center p-4 font-sans">
       <header className="text-center mb-6">
-        <h1 className="text-5xl font-bold text-yellow-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">What's your choice</h1>
+        <h1 className="text-5xl font-bold text-yellow-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">Dudu's Decision Wheel</h1>
         <p className="text-slate-400 mt-2">Add your choices and spin the wheel!</p>
       </header>
 
