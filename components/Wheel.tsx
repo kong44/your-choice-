@@ -1,6 +1,6 @@
 
 import React from 'react';
-
+import vite_png from '../vite.png'
 interface WheelProps {
   items: string[];
   rotation: number;
@@ -69,7 +69,9 @@ const Wheel: React.FC<WheelProps> = ({ items, rotation, colors }) => {
         })}
       </div>
        {/* Center circle */}
-      <div className="absolute top-1/2 left-1/2 w-16 h-16 md:w-20 md:h-20 bg-slate-800 rounded-full -translate-x-1/2 -translate-y-1/2 border-4 border-slate-600 shadow-inner"></div>
+      <div className="absolute top-1/2 left-1/2 w-16 h-16 md:w-20 md:h-20 bg-slate-800 rounded-full -translate-x-1/2 -translate-y-1/2 border-4 border-slate-600 shadow-inner">
+        <img src={vite_png} className="w-full h-full rounded-full"/>
+      </div>
     </div>
   );
 };
