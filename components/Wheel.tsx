@@ -16,7 +16,9 @@ const Wheel: React.FC<WheelProps> = ({ items, rotation, colors }) => {
         className="relative w-full h-full rounded-full border-8 border-slate-700 shadow-2xl bg-slate-800 flex items-center justify-center text-center p-4"
       >
         <p className="text-slate-400">Add food options to build the wheel!</p>
-        <div className="absolute top-1/2 left-1/2 w-16 h-16 md:w-20 md:h-20 bg-slate-800 rounded-full -translate-x-1/2 -translate-y-1/2 border-4 border-slate-600 shadow-inner"></div>
+        <div className="absolute top-1/2 left-1/2 w-16 h-16 md:w-20 md:h-20 bg-slate-800 rounded-full -translate-x-1/2 -translate-y-1/2 border-4 border-slate-600 shadow-inner">
+          <img src={vite_png} className="w-full h-full rounded-full"/>
+        </div>
       </div>
     );
   }
