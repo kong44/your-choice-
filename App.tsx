@@ -97,7 +97,7 @@ const App: React.FC = () => {
       setTimeout(() => winAudio.play(), 30);
    
     }, spinDuration);
-  }, 500); // Delay to allow rotation reset
+  }, 1000); // Delay to allow rotation reset
 };
 
 
