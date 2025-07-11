@@ -1,10 +1,15 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* Optional: Custom local font */
 @font-face {
   font-family: 'Krasar';
-  src: url('./KRASAR-REGULAR.TTF') format('truetype');
-  font-weight: normal;
+  src: url('/assets/KRASAR-REGULAR.TTF') format('truetype');
+  font-weight: 400;
   font-style: normal;
 }
 
+/* Apply to body */
 body {
-  font-family: 'Krasar' !important;
+  font-family: 'Kantumruy Pro', 'Krasar', sans-serif !important;
 }
