@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-
+import Btn_Add from '../add_btn.mp3';
 interface MenuInputProps {
   items: string[];
   onAddItem: (item: string) => void;
@@ -17,11 +17,12 @@ const TrashIcon: React.FC<{className?: string}> = ({className}) => (
 
 const MenuInput: React.FC<MenuInputProps> = ({ items, onAddItem, onRemoveItem, disabled }) => {
   const [newItem, setNewItem] = useState('');
-
+  const soundAdd = new Audio(Btn_Add);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onAddItem(newItem);
     setNewItem('');
+    soundAdd.play();
   };
 
   return (

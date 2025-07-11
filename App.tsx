@@ -5,7 +5,8 @@ import MenuInput from './components/MenuInput';
 import bubu from './bubu.png';
 import start from './start_btn.mp3';
 import wheel from './spinning-wheel.mp3';
-import win from './win.mp3'
+import win from './win.mp3';
+import Delete from './delete.mp3';
 const SPINNER_COLORS = [
   '#fde047', '#f97316', '#ef4444', '#ec4899',
   '#d946ef', '#a855f7', '#8b5cf6', '#6366f1',
@@ -45,7 +46,13 @@ const App: React.FC = () => {
   }, []);
 
   const handleRemoveItem = useCallback((indexToRemove: number) => {
+    const deleteAudio = new Audio(Delete);
     setMenuItems(prev => prev.filter((_, index) => index !== indexToRemove));
+    deleteAudio.play();
+
+    setTimeout(()=>{
+      deleteAudio.pause();
+    },2000);
   }, []);
   
   const handleSpin = () => {
