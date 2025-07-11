@@ -1,5 +1,3 @@
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 
 /* Optional: Custom local font */
 @font-face {
@@ -11,5 +9,5 @@
 
 /* Apply to body */
 body {
-  font-family: 'Kantumruy Pro', 'Krasar', sans-serif !important;
+  font-family: 'Krasar', sans-serif !important;
 }
