@@ -1,5 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+@font-face {
+  font-family: 'Krasar';
+  src: url('./KRASAR-REGULAR.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
-  font-family: "Kantumruy Pro", sans-serif;
+  font-family: 'Krasar', sans-serif !important;
 }
